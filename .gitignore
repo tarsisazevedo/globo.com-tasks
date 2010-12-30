@@ -1,0 +1,6 @@
+#Ignored Files
+
+*.pyc
+*.db
+*.*.swp
+media/team
