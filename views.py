@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, models
 from django.http import HttpResponseRedirect
 
 from favoritos.models import Favorito
@@ -16,10 +16,19 @@ def meu_delicious_login(request):
         user = authenticate(username=username, password=password) 
         if user.is_active:
             login(request, user)
-            return HttpResponseRedirect(request.META["HTTP_REFERER"])
+            return HttpResponseRedirect('/meu_delicous')
     except:
         return HttpResponseRedirect('/')
 
 def meu_delicious_logout(request):
     logout(request)
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+    return HttpResponseRedirect('/')
+
+def cadastrar(request):
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = models.User.objects.create(username=username)
+    user.set_password(password)
+    return HttpResponseRedirect('/meu_delicious')
+

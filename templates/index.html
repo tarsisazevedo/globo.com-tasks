@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block styles %}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>
-{% endblock styles %}
-
 {% block conteudo %}
 <div class="lista" id="favoritos">
   <h2>Favorios Recentes</h2>
@@ -12,6 +8,8 @@
     <li>
       <a href="{{ favorito.url }}">{{ favorito }}</a>
     </li>
+    {% empty %}
+      <li>Ainda não há favoritos cadastrados, <a href="/accounts/register/">clique aqui</a> para ser o primeiro</li>
     {% endfor %}
   </ul>
 </div>

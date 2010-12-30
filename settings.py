@@ -85,6 +85,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(ROOT, 'templates'),
+    os.path.join(ROOT, 'favoritos/templates'),
 )
 
 INSTALLED_APPS = (
@@ -95,8 +96,17 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'favoritos',
+    'registration',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
 
 AUTH_PROFILE_MODULE = 'favoritos.Usuario'
+ACCOUNT_ACTIVATION_DAYS = 7
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'tarsis.azevedo@gmail.com'
+EMAIL_HOST_PASSWORD = 'estasenhanaoefavela'
+EMAIL_SUBJECT_PREFIX = '[Your Delicious]'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

@@ -6,7 +6,8 @@
     {% endblock scripts %}
 
     {% block styles %}
-   {% endblock styles %}
+      <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>
+    {% endblock styles %}
   </head>
 
   <body>
@@ -14,7 +15,11 @@
       {% block menu %}
       <h2>Tarsis Delicious</h2>
       <ul>
-        <li><a href="login/">Login</a></li>
+        {% if not user.is_authenticated %}
+        <li><a href="/accounts/login/">Login</a></li>
+        {% else %}
+        <li><a href="/accounts/logout/">Logout</a></li>
+        {% endif %}
       </ul>
       {% endblock menu %}
     </div>
