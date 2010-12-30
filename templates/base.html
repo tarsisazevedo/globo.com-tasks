@@ -6,15 +6,18 @@
     {% endblock scripts %}
 
     {% block styles %}
-    {% endblock styles %}
+   {% endblock styles %}
   </head>
 
   <body>
-    {% block menu %}
-    <ul>
-      <li><a href="#">Login</a></li>
-    </ul>
-    {% endblock menu %}
+    <div id="menu">
+      {% block menu %}
+      <h2>Tarsis Delicious</h2>
+      <ul>
+        <li><a href="#">Login</a></li>
+      </ul>
+      {% endblock menu %}
+    </div>
 
     {% block conteudo %}
     {% endblock conteudo %}
