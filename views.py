@@ -1,4 +1,6 @@
 from django.shortcuts import render_to_response
+from favoritos.models import Favorito
 
 def index(request):
-    return render_to_response('index.html')
+    favoritos = Favorito.objects.all()
+    return render_to_response('index.html', locals())
