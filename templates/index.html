@@ -1,1 +1,9 @@
 {% extends "base.html" %}
+
+{% block conteudo %}
+<ul>
+  {% for favorito in favoritos %}
+  <li><a href="{{ favorito.url }}">{{ favorito }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock conteudo %}
