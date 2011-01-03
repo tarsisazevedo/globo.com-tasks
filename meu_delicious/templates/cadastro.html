@@ -3,9 +3,12 @@
 {% block conteudo %}
 
 <form method="post" action="/cadastrar/">
+  <h1> Cadastro </h1>	
+  <div class="menu_cadastro">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Cadastrar">
+  </div>
+ <input type="submit" value="Cadastrar">
 </form>
 
 {% endblock conteudo %}

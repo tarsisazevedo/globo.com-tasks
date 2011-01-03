@@ -9,13 +9,41 @@
   border-right: 1px solid white;
 }
 
-#favoritos-pessoal {
-  margin: 10px;
-  border-top: 2px solid black;
-  float: left;
-  width: 100%;
+.menu_profile {
+  background-color: white;
+  text-color: black;
+  height:100px;
+  width: 98%;
+  margin:10px;
+  /*hack chome IE e opera */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* hack firefox */
+  -moz-border-radius: 10px; 
+
 }
 
-#favoritos-pessoal p {
-  text-align: center;
+.menu_profile a:link, .menu_profile a:visited, .menu_profile a:active {
+  color: black;
+  padding: 10px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 19px;
+}
+
+.menu_profile ul li {
+  list-style: none;
+}
+.menu_profile a:hover {
+  background-color: #ff4500;
+  color: white;
+  /*hack chome IE e opera */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* hack firefox */
+  -moz-border-radius: 10px; 
 }
