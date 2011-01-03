@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load pagination_tags %}
+
 {% block styles %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>
@@ -23,6 +25,7 @@
 <div class="lista" id="favoritos">
   <h2>Favorios Recentes</h2>
   <ul>
+    {% autopaginate favoritos %}
     {% for favorito in favoritos %}
    
    <div class="caixa">
@@ -32,7 +35,8 @@
    </div>
     {% empty %}
       <li>Ainda não há favoritos cadastrados, <a href="/accounts/register/" class="button">clique aqui</a> para ser o primeiro</li>
-    {% endfor %}
-  </ul>
+      {% endfor %}
+    </ul>
+    {% paginate %}
 </div>
 {% endblock conteudo %}
