@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'meu_delicious.urls'
@@ -87,6 +88,11 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT, 'templates'),
     os.path.join(ROOT, 'favoritos/templates'),
 )
+TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.request")
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -96,7 +102,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'favoritos',
-    'registration',
+    'pagination',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -104,3 +110,6 @@ INSTALLED_APPS = (
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/meu_delicious/'
+
+PAGINATION_DEFAULT_PAGINATION = 10
+
