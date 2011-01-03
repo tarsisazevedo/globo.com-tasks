@@ -1,11 +1,9 @@
 from django.conf.urls.defaults import *
 from django.views.generic.create_update import create_object
 
-from favoritos.views import index, salvar_favorito
-from favoritos.models import Favorito, FavoritoForm
+from favoritos.views import index, novo_favorito
 
 urlpatterns = patterns('',
     (r'^$', index),
-    (r'^novo_favorito/$', create_object, {'form_class': FavoritoForm}),
-    (r'^salvar_favorito/$', salvar_favorito),
+    (r'^novo_favorito/$', novo_favorito),
 )

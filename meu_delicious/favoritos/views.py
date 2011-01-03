@@ -2,26 +2,24 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse 
+from django.contrib.auth.decorators import login_required
 
-from favoritos.models import Favorito, FavoritoForm
+from favoritos.models import Favorito
+from favoritos.forms import FavoritoForm
 
+@login_required
 def index(request):
     favoritos = Favorito.objects.filter(user=request.user)
     return render_to_response("profile.html", locals(), context_instance=RequestContext(request))
 
-def salvar_favorito(request):
-    import ipdb;ipdb.set_trace()
+def novo_favorito(request):
     if request.method == "POST":
-        titulo = request.POST['titulo']
-        url = request.POST['url']
-        user = request.user
-
-        favorito = Favorito.objects.create(titulo=titulo, url=url, user=user)
-        favorito_form = FavoritoForm(instance=favorito)
-        if favorito_form.is_valid():
-            favorito.save()
+        form =  FavoritoForm(request.POST) 
+        if form.is_valid():
+            favorito = form.save()
             return HttpResponseRedirect('/meu_delicious')
-        else:
-            return HttpResponseRedirect('/meu_delicious/novo_favorito')
-    
+    else:
+        form = FavoritoForm()
+    return render_to_response("favoritos/favorito_form.html", locals(), context_instance=RequestContext(request))
+            
     

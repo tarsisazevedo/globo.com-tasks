@@ -16,10 +16,4 @@ class Favorito(models.Model):
     def __unicode__(self):
         return self.titulo
 
-class FavoritoForm(forms.ModelForm):
-    class Meta:
-        model = Favorito
 
-    def clean_url(self):
-        url = self.cleaned_data['url']
-        return url.strip()
