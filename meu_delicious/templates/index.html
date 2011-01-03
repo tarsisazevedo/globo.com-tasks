@@ -24,10 +24,12 @@
   <h2>Favorios Recentes</h2>
   <ul>
     {% for favorito in favoritos %}
-    <li>
-      <p><a href="{{ favorito.url }}" >{{ favorito }}</a></p>
+   
+   <div class="caixa">
+    <h4>{{ favorito }}</h4> 
       <p><a href="{{ favorito.url }}" >{{ favorito.url }}</a></p>
-    </li>
+    
+   </div>
     {% empty %}
       <li>Ainda não há favoritos cadastrados, <a href="/accounts/register/" class="button">clique aqui</a> para ser o primeiro</li>
     {% endfor %}
