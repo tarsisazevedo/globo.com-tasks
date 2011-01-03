@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load pagination_tags %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>
+{% endblock styles %}
+
+{% block scripts %}
+  <script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.js"></script>
+  <script type="text/javascript">
+    function refresh(){
+      location.reload();
+    };
+
+    $(document).ready(function() {
+      setTimeout("refresh()", 30000);
+    });
+  </script>
+
+{% endblock scripts %}
+
+{% block conteudo %}
+<div class="lista" id="favoritos">
+  <h2>Favorios Recentes</h2>
+  {% if favoritos %}
+  <ul>
+    {% autopaginate favoritos %}
+    {% for favorito in favoritos %} 
+      <div class="caixa">
+        <h4>{{ favorito }}</h4> 
+          <p><a href="{{ favorito.url }}" >{{ favorito.url }}</a></p>
+      </div>
+    {% endfor %}
+  </ul>
+  {% paginate %}
+  {% else %}
+    <p>Ainda não há favoritos cadastrados, <a href="/cadastrar/" class="button">clique aqui</a> para ser o primeiro</p>  
+  {% endif %}
+</div>
+{% endblock conteudo %}

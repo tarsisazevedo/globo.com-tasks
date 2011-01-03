@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{{ MEDIA_URL}}/css/profile.css" type="text/css">
+{% endblock styles %}
+
+{% block conteudo %}
+  <div id="profile">
+    <p>{{ user.first_name }}'s Profile</p>
+  </div>
+  
+  <div id="menu-profile" class="button">
+    <span><a href="/meu_delicious/novo_favorito">Novo Favorito</a></span>
+  </div>
+
+  <div class="menu_profile">
+    <ul>
+      {% for favorito in favoritos %}
+        <li><a href='{{ favorito.url }}'>{{ favorito }}</a></li>
+        {% empty %}
+        <p>Voce ainda não cadastrou Favoritos!</p>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock conteudo %}
