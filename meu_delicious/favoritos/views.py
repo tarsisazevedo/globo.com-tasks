@@ -16,6 +16,7 @@ def novo_favorito(request):
     if request.method == "POST":
         form =  FavoritoForm(request.POST) 
         if form.is_valid():
+            form.set_user(request.user)
             favorito = form.save()
             return HttpResponseRedirect('/meu_delicious')
     else:

@@ -14,10 +14,14 @@ class FavoritoForm(forms.ModelForm):
     def clean_url(self):
         url = self.cleaned_data['url']
         return url.strip()
+    def set_user(self, user):
+        self.user = user
 
     def save(self, commit=True):
         favorito = super(FavoritoForm, self).save(commit=False)
+        
         if commit:
+            favorito.user = self.user
             favorito.save()
 
         return favorito
