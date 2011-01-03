@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block conteudo %}
+<form method="post" action="/salvar_favorito/">
+  {% csrf_token %}
+  <table>
+	<tr>
+        <td>{{ form.titulo.label_tag }}</td>
+        <td>{{ form.titulo }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.url.label_tag }}</td>
+        <td>{{ form.url }}</td>
+    </tr>
+  <table>
+
+  <input type="submit" value="Salvar">
+</form>
+{% endblock conteudo %}

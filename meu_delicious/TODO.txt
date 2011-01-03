@@ -1,0 +1,5 @@
+organizar menu principal
+autenticação e registro - tratar exceptions
+layout do index - colocar js pra atualizar lindo
+css do login, registro, index pessoal
+menu pessoal

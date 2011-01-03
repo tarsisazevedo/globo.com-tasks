@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>{% block title %}Delicious by Tarsis{% endblock title %}</title>
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+    {% block styles %}
+      <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>
+    {% endblock styles %}
+  </head>
+
+  <body>
+    <div id="menu" class="lista">
+      {% block menu %}
+      <h2>Tarsis' Delicious</h2>
+      <ul>
+        {% if not user.is_authenticated %}
+		<li><a href="/cadastrar/">Cadastrar</a></li>
+        <li><a href="/login/">Login</a></li>
+        {% else %}
+		<li><a href="/meu_delicious/">Minha Pagina</a></li>
+        <li><a href="/logout/">Logout</a></li>
+        {% endif %}
+      </ul>
+      {% endblock menu %}
+    </div>
+
+    {% block conteudo %}
+    {% endblock conteudo %}
+  </body>
+</html>
