@@ -1,13 +1,26 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{{ MEDIA_URL}}/css/profile.css" type="text/css">
+{% endblock styles %}
+
 {% block conteudo %}
-  <p>{{ user.first_name }}'s Profile</p>
-  <span><a href="/meu_delicious/novo_favorito">Novo Favorito</a></span>
-  <ul>
-  {% for favorito in favoritos %}
-	<li><a href='{{ favorito.url }}'>{{ favorito }}</a></li>
-	{% empty %}
-	<p>Voce nao tem Favoritos. <a href='/meu_delicious/novo_favorito'>Clique Aqui</a> para cadastrar o primeiro!</p>
-  {% endfor %}
-  </ul>
+  <div id="profile">
+    <p>{{ user.first_name }}'s Profile</p>
+  </div>
+  
+  <div id="menu-profile" class="button">
+    <span><a href="/meu_delicious/novo_favorito">Novo Favorito</a></span>
+  </div>
+
+  <div id="favoritos-pessoal">
+    <ul>
+      {% for favorito in favoritos %}
+        <li><a href='{{ favorito.url }}'>{{ favorito }}</a></li>
+        {% empty %}
+        <p>Voce ainda não cadastrou Favoritos!</p>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock conteudo %}

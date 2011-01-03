@@ -1,0 +1,21 @@
+#profile {
+  margin: 10px;
+  text-decoration: underline;
+}
+
+#menu-profile ul li a {
+  color: white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+#favoritos-pessoal {
+  margin: 10px;
+  border-top: 2px solid black;
+  float: left;
+  width: 100%;
+}
+
+#favoritos-pessoal p {
+  text-align: center;
+}
