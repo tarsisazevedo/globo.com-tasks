@@ -1,56 +1,3 @@
-body {
-  margin: 0px;
-  padding: 0px;
-  font-size: 2em;
-}
-body a:link, body a:visited, body a:active {
-  color: black;
-  text-decoration: none;
-  padding: 10px;
-}
-
-body a:hover {
-  background-color: #ff4500;
-  color: white;
-}
-
-.lista {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  overflow: hidden;
-  margin: 10px;
-}
-
-#menu h2 {
-  margin: 0px;
-  padding: 0px;
-  font-size: 2.5em;
-}
-
-.lista ul{
-  margin: 0px;
-  padding: 0px;
-}
-
-.lista ul li {
-  clear: both;
-  list-style: none;
-  float: right;
-  margin: 10px;
-  padding: 5px;
-}
-
-.lista ul li a:link, .lista ul li a:visited, .lista ul li a:active {
-  color: black;
-  text-decoration: none;
-  padding: 10px;
-}
-
-.lista ul li a:hover {
-  background-color: #ff4500;
-  color: white;
-}
-
 #favoritos h2 {
   border-bottom: 1px solid black;
 }
@@ -61,6 +8,4 @@ body a:hover {
   margin: 5px;
   border-bottom: 2px solid gray;
   width: 100%;
-  height: 80px;
 }
-
