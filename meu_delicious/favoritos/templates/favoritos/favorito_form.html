@@ -2,19 +2,19 @@
 
 
 {% block conteudo %}
-<form method="post" action="/meu_delicious/salvar_favorito/">
+<form action="/meu_delicious/salvar_favorito/" method="post">
   {% csrf_token %}
-  <table>
-	<tr>
-        <td>{{ form.titulo.label_tag }}</td>
-        <td>{{ form.titulo }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.url.label_tag }}</td>
-        <td>{{ form.url }}</td>
-    </tr>
-  <table>
-
-  <input type="submit" value="Salvar">
+  {{ form.non_field_errors }}
+  <div class="fieldWrapper">
+    {{ form.titulo.errors }}
+    <label for="id_subject">Titulo:</label>
+    {{ form.titulo }}
+  </div>
+  <div class="fieldWrapper">
+    {{ form.url.errors }}
+    <label for="id_message">URL:</label>
+    {{ form.url }}
+  </div>
+  <p><input type="submit" value="Salvar" /></p>
 </form>
-{% endblock conteudo %}
+ {% endblock conteudo %}
