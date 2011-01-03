@@ -7,10 +7,6 @@ from django.db import IntegrityError
 from favoritos.models import Favorito
 from forms import LoginForm, CadastroForm
 
-def index(request):
-    favoritos = Favorito.objects.all()
-    return render_to_response('index.html', locals(), context_instance=RequestContext(request))
-            
 def meu_delicious_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
