@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 from django.views.generic.date_based import archive_index
 
-from views import cadastrar, meu_delicious_login, meu_delicious_logout
+from views import cadastrar
 from favoritos.models import Favorito
 
 admin.autodiscover()
@@ -16,8 +16,8 @@ urlpatterns = patterns('',
                             'date_field': 'data', 
                             "template_name": 'index.html', 
                             'template_object_name': 'favoritos',}),
-    (r'^login/', meu_delicious_login),
-    (r'^logout/', meu_delicious_logout),
+    (r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+    (r'^logout/', 'django.contrib.auth.views.logout', {'template_name': 'logout.html', 'next': '/'}),
     (r'^cadastrar/', cadastrar),
     (r'^meu_delicious/', include('favoritos.urls')),
     (r'^admin/', include(admin.site.urls)),
