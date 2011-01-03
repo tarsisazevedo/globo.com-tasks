@@ -101,12 +101,6 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
-AUTH_PROFILE_MODULE = 'favoritos.Usuario'
-ACCOUNT_ACTIVATION_DAYS = 7
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'tarsis.azevedo@gmail.com'
-EMAIL_HOST_PASSWORD = 'estasenhanaoefavela'
-EMAIL_SUBJECT_PREFIX = '[Your Delicious]'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
+LOGIN_REDIRECT_URL = '/meu_delicious/'
